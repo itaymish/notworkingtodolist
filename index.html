@@ -32,7 +32,37 @@
     toDoItem.appendChild(toDoText);
     
     if (completed) {
-      toDoItem.classList.add("
+      toDoItem.classList.add("completed");
+    }
+    
+    toDoList.appendChild(toDoItem);
+    toDoItem.addEventListener("dblclick", toggleToDoItemState);
+  }
+  function addToDoItem() {
+    var itemText = toDoEntryBox.value;
+    newToDoItem(itemText, false);
+  }
+  function toggleToDoItemState() {
+    if (this.classList.contains("completed")) {
+      this.classList.remove('completed");
+    } else {
+      this.classList.add("completed");
+    }
+  }
+  function clearCompletedToDoItem() {
+    var completedItems = toDoList.getElementByClassName("completed");
+    while (completedItems.length > 0) {
+      completedItems.item(0).remove();
+    }
+  }
+  function emptyList() {
+    var toDoItems = toDoList.children;
+    while (toDoItems.length > 0) {
+      toDoItems.item(0).remove();
+    }
+  }
+  function saveList() {
+    var toDos = [];
 </script>
 </body>
 </html>
